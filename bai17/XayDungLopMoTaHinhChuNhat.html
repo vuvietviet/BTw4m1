@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay dung lop mo ta hinh chu nhat</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1000px" height="500px" style="border: 1px solid gray"></canvas>
+</body>
+</html>
+
+<script>
+    let Rectangle = function (widthR,heightR) {
+        this.heightR = heightR;
+        this.widthR = widthR;
+
+        this.getArea = function () {
+            return heightR * widthR;
+        }
+        this.getPerimeter = function () {
+            return 2*(heightR + widthR);
+        }
+    }
+    let c = document.getElementById('myCanvas');
+    let ctx = c.getContext("2d");
+    let x = 50;
+    let y = 20;
+    let rectangle = new Rectangle(x,y);
+    let area = rectangle.getArea();
+    let perimeter = rectangle.getPerimeter();
+    ctx.fillRect(10,10,x,y);
+    alert("Area: " + area + ', perimeter: ' + perimeter);
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class mo ta dien thoai</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    let Mobile = function (pin) {
+        this.pin = pin;
+        let saving = new Array();
+        let saveTo = new Array();
+        let saved = new Array();
+
+
+        this.source = function () {
+            this.pin = this.pin - 1;
+            let sce = prompt('Soure: ','');
+            if (sce === 'on') {
+                this.status = function () {
+                    this.pin = this.pin - 1;
+                    let stt = prompt('Status: ','');
+                    if (stt === 'on') {
+                        this.charge = function () {
+                            this.pin = this.pin - 1;
+                            if (this.pin<=20) {
+                                return 'charge';
+                            } else {
+                                return this.pin + '%';
+                            }
+                        }
+                        let mess = '';
+                        this.composer = function () {
+                            this.pin = this.pin - 1;
+                            mess = prompt('Soan tin nhan: ','');
+                            saving.unshift(mess);
+                        }
+                        let count = 0;
+                        this.receive = function (rcv) {
+                            this.pin = this.pin - 1;
+                            saveTo.unshift(rcv);
+                            count ++;
+                            return 'Received ' + count + ' message';
+                        }
+                        this.send = function () {
+                            this.pin = this.pin - 1;
+                            saved.unshift(mess);
+                            return mess;
+                        }
+                        this.reviewReceive = function () {
+                            this.pin = this.pin - 1;
+                            return saveTo;
+                        }
+                        this.reviewSend = function () {
+                            this.pin = this.pin - 1;
+                            return saved;
+                        }
+                    }
+                    return "status: " + stt;
+                }
+                return "source: " + sce;
+            }
+
+        }
+    }
+
+    let nokia = new Mobile(16);
+    nokia.source();
+    nokia.status();
+    alert(nokia.charge());
+    nokia.composer();
+    let messageFromNokia = nokia.send();
+    alert('Sended');
+    let iphone = new Mobile(50);
+    iphone.source();
+    iphone.status();
+    alert(iphone.charge());
+    iphone.charge();
+    alert(iphone.receive(messageFromNokia));
+    let show = iphone.reviewReceive();
+    alert(show);
+</script>

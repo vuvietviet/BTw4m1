@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class mo ta Temperature</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    let Temperature = function (celcius) {
+        this.celcius = celcius;
+
+        this.toFahrenheit = function () {
+            return (celcius*1.8)+32;
+        }
+
+        this.toKelvin = function () {
+            return celcius + 273.15;
+        }
+    }
+
+    let temperature = new Temperature(25);
+    let f = temperature.toFahrenheit();
+    let k = temperature.toKelvin();
+    alert('Fahrenheit: ' + f + ', Kelvin: ' + k);
+</script>

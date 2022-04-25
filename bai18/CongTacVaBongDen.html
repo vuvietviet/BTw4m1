@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuong trinh the hien tuong tac giua cong tac va bong den</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    class ElectricLamp {
+        status;
+        constructor(status) {
+            this.status = status;
+            if (this.status) {
+                alert('lighting');
+            } else {
+                alert('Not lighting');
+            }
+        }
+        turnOff() {
+            this.status = false;
+            return 'Not lighting';
+        }
+        turnOn() {
+            this.status = true;
+            return 'lighting';
+        }
+    }
+
+    class SwitchButton {
+        status;
+        lamp;
+        constructor(status,lamp) {
+            this.status = status;
+            this.lamp = lamp;
+        }
+        connectToLamp(electricLamp) {
+            this.lamp = electricLamp;
+            this.status = electricLamp.status;
+        }
+        switchOff() {
+            return this.lamp.turnOff();
+        }
+        switchOn() {
+            return this.lamp.turnOn();
+        }
+    }
+    // Tao 2 doi tuong khi chua ket noi
+    let electricLamp = new ElectricLamp(false);
+    let switchButton = new SwitchButton(true,);
+    console.log(electricLamp);
+    console.log(switchButton);
+    //Ket noi 2 doi tuong voi nhau va thao tac
+    switchButton.connectToLamp(electricLamp);
+    console.log(switchButton);
+    alert(switchButton.switchOn());
+    console.log(electricLamp);
+    alert(switchButton.switchOff());
+    console.log(electricLamp);
+
+</script>

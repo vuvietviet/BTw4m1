@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau chuyen cua Adam va Eva</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+  class Apple {
+      weightA;
+      constructor(weightA) {
+          this.weightA = weightA;
+      }
+      decrease() {
+          this.weightA -= 1;
+      }
+      getWeightA() {
+          return this.weightA;
+      }
+  }
+
+  class Human {
+      name;
+      gender;
+      weight;
+      constructor(name,gender,weight) {
+          this.name = name;
+          this.gender = gender;
+          this.weight = weight;
+      }
+      isMale() {
+          if (this.gender) {
+              this.gender = 'Male';
+          } else {
+              this.gender = 'Female';
+          }
+      }
+      setGender(boolean) {
+          this.gender = boolean;
+      }
+      checkApple(apple) {
+          return apple.getWeightA();
+      }
+      eat(apple) {
+          if (apple.getWeightA()>0) {
+              apple.decrease();
+              this.weight += 1;
+          } else {
+              return 'Weight of apple = 0';
+          }
+
+      }
+      say(str){
+          return str;
+      }
+      getName() {
+          return this.name;
+      }
+      setName (name) {
+          this.name = name;
+      }
+      getWeight() {
+          return this.weight;
+      }
+      setWeight(weight) {
+          this.weight = weight;
+      }
+  }
+
+  let apple = new Apple(10);
+  let John = new Human('John','female',70);
+  console.log(John)
+  John.setGender(true);
+  John.isMale();
+  console.log(John);
+  John.eat(apple);
+  console.log(apple.getWeightA());
+  console.log(John.getWeight());
+  console.log(John.getName())
+  let Mary = new Human('Mary','female',50);
+  console.log(Mary.checkApple(apple));
+  console.log(Mary.say("I'm Mary"));
+  Mary.setWeight(55);
+  console.log(Mary.getWeight());
+  Mary.setName('Maria');
+  console.log(Mary.getName());
+  console.log(John);
+  console.log(Mary);
+</script>

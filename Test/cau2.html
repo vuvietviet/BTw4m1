@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cau 2</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    let arr1 = new Array();
+    function tryRemoveFromArray(array,index) {
+        if (index>=0&&index<array.length) {
+            for (let i = 0; i < array.length; i++) {
+                if (i!==index) {
+                    arr1.push(array[i]);
+                }
+            }
+            console.log('mang sau khi loai index: ' + arr1);
+        } else {
+            console.log('mang khi index khong hop le: ' + array);
+        }
+
+    }
+    let arrayP = [1,2,3,4,5];
+    tryRemoveFromArray(arrayP,3);
+</script>

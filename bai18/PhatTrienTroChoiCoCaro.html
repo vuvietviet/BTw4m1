@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phat trien tro choi co caro</title>
+    <style>
+        tr,td {
+            border: 1px solid gray;
+
+        }
+        td {
+            width: 20px;
+            height: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            top: 10px;
+            left: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="game">
+</div>
+</body>
+</html>
+
+<script>
+    let a = new Array();
+    let str = '';
+    let player = true;
+    for (let i = 0; i < 20; i++) {
+        a.push(new Array());
+        for (let j = 0; j < 20; j++) {
+            a[i][j] = '';
+        }
+    }
+
+    str = "<table border='1px'>";
+    for (let i = 0; i < 20; i++) {
+        str += "<tr>";
+        for (let j = 0; j < 20; j++) {
+            str += `<td onclick="valueT(${i},${j})">${a[i][j]}</td>`;
+        }
+        str += "</tr>";
+    }
+    str += "</table>";
+    document.getElementById('game').innerHTML = str;
+
+
+    function valueT(x,y) {
+        if (player) {
+            a[x][y] = 'X';
+            player = false;
+        } else {
+            a[x][y] = 'O';
+            player = true;
+        }
+
+    }
+</script>

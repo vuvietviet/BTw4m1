@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mo ta dien thoai update</title>
+    <style>
+        button, textarea {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <p id="pin1"></p>
+    <table>
+        <tr>
+            <td colspan="3"><textarea rows="5" id="iphone6"></textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="send(iphone6,iphoneX,'iphone6','iphoneX')">Send</button>
+            </td>
+            <td>
+                <button onclick="displayDaGui(iphone6,'iphone6')">MemoryDaGui</button>
+            </td>
+            <td>
+                <button onclick="turnOn(iphone6)">On</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="turnOff(iphone6)">Off</button>
+            </td>
+            <td>
+                <button onclick="displayDen(iphone6,'iphone6')">MemoryDen</button>
+            </td>
+            <td>
+                <button>UpBattery</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="pin2"></p>
+    <table>
+        <tr>
+            <td colspan="3"><textarea rows="5" id="iphoneX"></textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="send(iphoneX,iphone6,'iphoneX','iphone6')">Send</button>
+            </td>
+            <td>
+                <button onclick="displayDaGui(iphoneX,'iphoneX')">MemoryDaGui</button>
+            </td>
+            <td>
+                <button onclick="turnOn(iphoneX)">On</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="turnOff(iphoneX)">Off</button>
+            </td>
+            <td>
+                <button onclick="displayDen(iphoneX,'iphoneX')">MemoryDen</button>
+            </td>
+            <td>
+                <button>UpBattery</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
+
+<script src="XayDungLopMoTaDienThoaiUpdate.js"></script>
+<script>
+    function send(phone1, phone2, idSend, idNhan) {
+        phone1.message = document.getElementById(idSend).value;
+        phone1.send(phone2);
+        document.getElementById(idSend).value = "";
+        document.getElementById(idNhan).value = "Bạn có 1 tin nhắn";
+        showPin();
+    }
+
+    function turnOn(phone) {
+        phone.turnOn();
+        showPin();
+    }
+
+    function turnOff(phone) {
+        phone.turnOff();
+        showPin();
+    }
+
+    function displayDen(phone, id) {
+        let str = '';
+        for (let i = 0; i < phone.memoryDen.length; i++) {
+            str += phone.memoryDen[i];
+            str += "\n";
+        }
+        document.getElementById(id).value = str;
+        showPin();
+    }
+
+    function displayDaGui(phone, id) {
+        let str = '';
+        for (let i = 0; i < phone.memoryDaGui.length; i++) {
+            str += phone.memoryDaGui[i];
+            str += "\n";
+        }
+        document.getElementById(id).value = str;
+        showPin();
+    }
+
+    function showPin() {
+        document.getElementById("pin1").innerHTML = iphone6.battery.energy;
+        document.getElementById("pin2").innerHTML = iphoneX.battery.energy;
+    }
+
+    showPin();
+
+
+</script>

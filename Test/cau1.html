@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sach diem thi</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+  let diemThi = [7,3,5,1,9,23,4,6,5];
+  let diemThi1 = new Array();
+  let diemThi2 = new Array();
+  let max1 = diemThi[0];
+  let k = 0;
+  for (let i = 1; i < diemThi.length; i++) {
+    if (max1<diemThi[i]) {
+        max1 = diemThi[i];
+        k = i;
+    }
+  }
+  for (let j = 0; j< diemThi.length; j++) {
+      if ((j!==k)&&(diemThi[j]!==max1)) {
+          diemThi1.push(diemThi[j]);
+      }
+  }
+  k = 0;
+  let max2 = diemThi1[0];
+  for (let i = 1; i < diemThi1.length; i++) {
+      if (max2<diemThi1[i]) {
+          max2 = diemThi1[i];
+          k = i;
+      }
+  }
+
+  for (let j = 0; j< diemThi1.length; j++) {
+      if (j!==k&&diemThi1[j]!==max2) {
+          diemThi2.push(diemThi1[j]);
+      }
+  }
+  let max3 = diemThi2[0];
+  for (let i = 1; i < diemThi2.length; i++) {
+      if (max3<diemThi2[i]) {
+          max3 = diemThi2[i];
+      }
+  }
+  console.log('Diem thi cao thu 3 la: ' + max3);
+</script>

@@ -3,7 +3,7 @@ let context = canvas.getContext("2d");
 
 let ball = {
     x: 20,
-    y: 20,
+    y: 150,
     dx: 5,
     dy: 2,
     radius: 5,
@@ -103,18 +103,18 @@ function backgroundCanvas() {
 }
 
 function handleBallCollideBounds() {
-    if (ball.x<ball.radius||ball.x>canvas.width-ball.radius) {
+    if (ball.x < ball.radius || ball.x > canvas.width - ball.radius) {
         ball.dx = -ball.dx;
     }
-    if (ball.y<ball.radius) {
+    if (ball.y < ball.radius) {
         ball.dy = -ball.dy;
     }
 }
 
 function handleBallCollidePaddle() {
-    if (ball.x+ball.radius>=paddle.x&&
-        ball.x+ball.radius<=paddle.x+paddle.width&&
-        ball.y+ball.radius>=canvas.height-paddle.height) {
+    if (ball.x + ball.radius >= paddle.x &&
+        ball.x + ball.radius <= paddle.x + paddle.width &&
+        ball.y + ball.radius >= canvas.height - paddle.height) {
         sound[3].play();
         ball.dy = -ball.dy;
     }
@@ -123,14 +123,14 @@ function handleBallCollidePaddle() {
 function handleBallCollideBricks() {
     brickList.forEach(function (b) {
         if (!b.isBroken) {
-            if (ball.x >= b.x&&ball.x<=b.x+brickConfig.widthB&&
-            ball.y + ball.radius>=b.y &&ball.y-ball.radius<=b.y+brickConfig.heightB) {
+            if (ball.x >= b.x && ball.x <= b.x + brickConfig.widthB &&
+            ball.y + ball.radius >= b.y && ball.y - ball.radius <= b.y + brickConfig.heightB) {
                 sound[0].play();
                 ball.dy = -ball.dy
                 b.isBroken = true;
-                userScore +=1;
+                userScore += 1;
                 document.getElementById('showScore').innerHTML = userScore;
-                if (userScore>=maxScore) {
+                if (userScore >= maxScore) {
                     isGameOver = true;
                     isGameWin = true;
                 }
@@ -150,15 +150,15 @@ function updatePaddlePosition() {
     } else if (paddle.isMovingRight) {
         paddle.x += paddle.speed;
     }
-    if (paddle.x<0) {
+    if (paddle.x < 0) {
         paddle.x = 0;
-    } else if (paddle.x>canvas.width - paddle.width) {
+    } else if (paddle.x > canvas.width - paddle.width) {
         paddle.x = canvas.width - paddle.width;
     }
 }
 
 function checkGameOver() {
-    if (ball.y>canvas.height-ball.radius) {
+    if (ball.y > canvas.height - ball.radius) {
         isGameOver = true;
     }
 }

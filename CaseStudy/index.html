@@ -7,16 +7,25 @@
         canvas {
             border: 1px solid darkgray;
         }
-        h1 {
-            margin-left: 160px;
+        p {
+            position: relative;
+            padding-right: 460px;
+        }
+        span {
+            position: absolute;
+        }
+        body {
+            background-color: darkcyan;
         }
     </style>
 </head>
 <body>
+<div align="center">
     <h1>Break Bricks</h1>
     <img src="img.png" width="500" height="500" alt="" id="image" hidden>
     <canvas id="game" width="500" height="500"></canvas>
     <p>Score:<span id="showScore"></span></p>
+</div>
 </body>
 </html>
 

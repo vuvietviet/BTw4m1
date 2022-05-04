@@ -19,13 +19,14 @@ let paddle = {
     isMovingRight: false,
 }
 
+
 let brickConfig = {
     offSetX: 25,
     offSetY: 25,
     marginB: 25,
     widthB: 70,
     heightB: 10,
-    totalRows: 3,
+    totalRows: 4,
     totalCols: 5,
 }
 
@@ -38,6 +39,8 @@ let isGameWin = false;
 let userScore = 0;
 let maxScore = brickConfig.totalRows * brickConfig.totalCols;
 let brickList = [];
+
+
 for (let i = 0; i < brickConfig.totalRows; i++) {
     for (let j = 0; j < brickConfig.totalCols; j++) {
         brickList.push({
@@ -184,6 +187,7 @@ function draw() {
         handleBallCollideBounds();
         handleBallCollidePaddle();
         handleBallCollideBricks();
+
         updateBallPosition();
         updatePaddlePosition();
         checkGameOver();
@@ -195,5 +199,7 @@ function draw() {
 }
 
 draw();
+
+
 
 

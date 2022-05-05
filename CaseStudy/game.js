@@ -8,6 +8,7 @@ let ball = {
     dy: 2,
     radius: 5,
 }
+
 let paddle = {
     width: 70,
     height: 10,
@@ -18,7 +19,6 @@ let paddle = {
     isMovingLeft: false,
     isMovingRight: false,
 }
-
 
 let brickConfig = {
     offSetX: 25,
@@ -33,12 +33,13 @@ let brickConfig = {
 let sound = [new Audio("sound1.mp3"), new Audio("win.mp3")
     ,new Audio("lose.mp3"),new Audio("sound2.mp3")];
 
-
 let isGameOver = false;
 let isGameWin = false;
 let userScore = 0;
 let maxScore = brickConfig.totalRows * brickConfig.totalCols;
 let brickList = [];
+
+let begin = false;
 
 
 for (let i = 0; i < brickConfig.totalRows; i++) {
@@ -176,6 +177,13 @@ function handleGameOver() {
     }
 }
 
+let checkpau = false;
+function pau() {
+    checkpau = true;
+}
+
+
+
 function draw() {
     if (!isGameOver) {
         context.clearRect(0,0,canvas.width,canvas.height);
@@ -184,21 +192,40 @@ function draw() {
         drawPaddle();
         drawBricks();
 
-        handleBallCollideBounds();
-        handleBallCollidePaddle();
-        handleBallCollideBricks();
+        if(begin) {
+            handleBallCollideBounds();
+            handleBallCollidePaddle();
+            handleBallCollideBricks();
 
-        updateBallPosition();
-        updatePaddlePosition();
-        checkGameOver();
+            updateBallPosition();
+            updatePaddlePosition();
+            checkGameOver();
 
-        requestAnimationFrame(draw);
+            // requestAnimationFrame(draw);
+            if(checkpau) {
+                cancelAnimationFrame(draw);
+            }
+            if(!checkpau) {
+                requestAnimationFrame(draw);
+            }
+        }
     } else {
         handleGameOver();
     }
 }
 
 draw();
+
+function sta() {
+    begin = true;
+    draw();
+}
+
+function conti() {
+    checkpau = false;
+    draw();
+}
+
 
 
 

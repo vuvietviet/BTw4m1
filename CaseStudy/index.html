@@ -17,6 +17,10 @@
         body {
             background-color: darkcyan;
         }
+        button {
+            background-color: chartreuse;
+            border: 1px solid darkcyan;
+        }
     </style>
 </head>
 <body>
@@ -25,6 +29,9 @@
     <img src="img.png" width="500" height="500" alt="" id="image" hidden>
     <canvas id="game" width="500" height="500"></canvas>
     <p>Score:<span id="showScore"></span></p>
+    <button onclick="sta()">Start</button>
+    <button onclick="pau()">Pause</button>
+    <button onclick="conti()">Continue</button>
 </div>
 </body>
 </html>

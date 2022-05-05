@@ -201,7 +201,6 @@ function draw() {
             updatePaddlePosition();
             checkGameOver();
 
-            // requestAnimationFrame(draw);
             if(checkpau) {
                 cancelAnimationFrame(draw);
             }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 2</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    function tryRemoveFromArray(arr,x) {
+        for (let i = 0; i < arr.length; i++) {
+            if (x === arr[i]) {
+                arr.splice(i,1);
+            }
+        }
+        return arr;
+    }
+
+    let arr = [1,4,6,3,7,8,74,234];
+    let x = 74;
+    alert(tryRemoveFromArray(arr,x));
+</script>
